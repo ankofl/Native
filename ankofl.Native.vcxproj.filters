@@ -13,14 +13,29 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\typedefs">
+      <UniqueIdentifier>{9fa740e5-b1b9-48f3-b02e-27be4e672455}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="union_m1_m2.cpp">
+    <ClCompile Include="boolean_mesh_1_mesh_2.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="typedefs.h">
+    <ClInclude Include="read_args_from_file.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="typedefs_mesh.h">
+      <Filter>Файлы заголовков\typedefs</Filter>
+    </ClInclude>
+    <ClInclude Include="typedefs_std.h">
+      <Filter>Файлы заголовков\typedefs</Filter>
+    </ClInclude>
+    <ClInclude Include="answer_utils.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

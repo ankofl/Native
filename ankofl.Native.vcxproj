@@ -13,10 +13,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{DA5BD7A8-4147-476D-A606-F3AF578FC657}</ProjectGuid>
+    <ProjectGuid>{385E612E-191D-4960-BCE0-738CC450181B}</ProjectGuid>
     <RootNamespace>ankofl_CSG_Native</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>inter_m1_m2</ProjectName>
+    <ProjectName>ankofl.Native</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -96,13 +96,18 @@
       <AdditionalDependencies>mpfr.lib;gmp.lib;gmpxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-	      xcopy /Y /I "C:\dev\vcpkg\bin\gmp-10.dll" "bin\Release\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\mpfr-6.dll" "bin\Release\" &amp;&amp; xcopy /Y /I "bin\Release\inter_m1_m2.exe" "C:\Users\ЭОМ3\AppData\Local\ankofl\Native\1.0.0\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\gmp-10.dll" "C:\Users\ЭОМ3\AppData\Local\ankofl\Native\1.0.0\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\mpfr-6.dll" "C:\Users\ЭОМ3\AppData\Local\ankofl\Native\1.0.0\"
-	  </Command>
+      <Command>xcopy /Y /I "C:\dev\vcpkg\bin\gmp-10.dll" "bin\Release\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\mpfr-6.dll" "bin\Release\" &amp;&amp; xcopy /Y /I "bin\Release\ankofl.Native.exe" "C:\Users\Public\ankofl\Native\1.0.0\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\gmp-10.dll" "C:\Users\Public\ankofl\Native\1.0.0\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\mpfr-6.dll" "C:\Users\Public\ankofl\Native\1.0.0\"	  </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="inter_m1_m2.cpp" />
+    <ClCompile Include="boolean_mesh_1_mesh_2.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="read_args_from_file.h" />
+    <ClInclude Include="typedefs_mesh.h" />
+    <ClInclude Include="answer_utils.h" />
+    <ClInclude Include="typedefs_std.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
