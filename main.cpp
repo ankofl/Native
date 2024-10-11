@@ -1,8 +1,6 @@
-
-#include "typedefs_std.h"
-#include "read_args_from_file.h"
-#include "boolean_mesh_1_mesh_2.cpp"
-#include "answer_utils.h"
+#include "h/read_args_from_file.h"
+#include "cpp/boolean_mesh_1_mesh_2.cpp"
+#include "h/answer_utils.h"
 
 int main() {
     std::vector<std::string> args = read_args_from_file(path_data); // Читаем параметры из файла    
@@ -18,6 +16,5 @@ int main() {
     else {
         answer_add("incorrect_args");
     }
-
     return 0;
 }

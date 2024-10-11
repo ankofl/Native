@@ -1,5 +1,5 @@
 #pragma once
-#include "typedefs_std.h"
+#include "typedefs/typedefs_std.h"
 
 inline void answer_add(const std::string& msg) {
     std::ofstream file(path_data, std::ios::app); // Открываем файл в режиме добавления

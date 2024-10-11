@@ -1,6 +1,5 @@
 #pragma once
-#include "typedefs_std.h"
-#include "answer_utils.h"
+#include "../h/answer_utils.h"
 
 std::vector<std::string> read_args_from_file(const std::string& filepath) {
     std::ifstream file(filepath); // Открываем файл для чтения
