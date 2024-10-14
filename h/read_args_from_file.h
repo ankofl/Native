@@ -1,9 +1,9 @@
 #pragma once
 #include "../h/answer_utils.h"
 
-std::vector<std::string> read_args_from_file(const std::string& filepath) {
+inline bool read_args_from_file(const std::string& filepath, std::vector<std::string>& args) {
     std::ifstream file(filepath); // Открываем файл для чтения
-    std::vector<std::string> args; // Создаём вектор для хранения аргументов
+    args.clear();
 
     if (file.is_open()) {
         std::string line;
@@ -17,11 +17,11 @@ std::vector<std::string> read_args_from_file(const std::string& filepath) {
             }
         }
         file.close(); // Закрываем файл
-        answer_clear();
+        //answer_clear();
     }
     else {
-        answer_clear();
+        //answer_clear();
         answer_add(std::format("fail_open_file: < {} >\n", filepath));
     }
-    return args;
+    return args.size() > 0;
 }

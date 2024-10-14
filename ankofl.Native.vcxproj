@@ -19,13 +19,11 @@
     <ProjectName>ankofl.Native</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  
   <PropertyGroup Label="Versioning">
-      <AssemblyVersion>1.0.1</AssemblyVersion>
-      <FileVersion>$(AssemblyVersion)</FileVersion>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>$(AssemblyVersion)</FileVersion>
     <InformationalVersion>$(AssemblyVersion)</InformationalVersion>
   </PropertyGroup>
-  
   <!-- Конфигурация Debug -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -33,7 +31,6 @@
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-
   <!-- Конфигурация Release -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -42,35 +39,31 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings"></ImportGroup>
-  <ImportGroup Label="Shared"></ImportGroup>
-  
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
   <!-- Debug PropertySheets -->
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-
   <!-- Release PropertySheets -->
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-
   <PropertyGroup Label="UserMacros" />
-
   <!-- Путь вывода и временные файлы для Debug -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>bin\Debug\</OutDir>
     <IntDir>bin\Debug\obj\</IntDir>
   </PropertyGroup>
-
   <!-- Путь вывода и временные файлы для Release (изменено) -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>bin\Release\</OutDir>
-    <IntDir>bin\Release\obj\</IntDir> <!-- Временные файлы перенесены в Temp\Release\obj -->
+    <IntDir>bin\Release\obj\</IntDir>
+    <!-- Временные файлы перенесены в Temp\Release\obj -->
   </PropertyGroup>
-
   <!-- Настройки компиляции для Debug -->
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -82,7 +75,7 @@
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>false</SupportJustMyCode>
-      <PreprocessorDefinitions>CGAL_EIGEN3_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;CGAL_EIGEN3_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -92,8 +85,10 @@
       <AdditionalLibraryDirectories>C:\dev\vcpkg\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mpfr.lib;gmp.lib;gmpxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I "C:\dev\vcpkg\bin\gmp-10.dll" "bin\Debug\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\mpfr-6.dll" "bin\Debug\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
-
   <!-- Настройки компиляции для Release (изменено) -->
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -108,13 +103,15 @@
       <PreprocessorDefinitions>CGAL_EIGEN3_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <DebugInformationFormat>None</DebugInformationFormat> <!-- Отключаем отладочную информацию -->
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <!-- Отключаем отладочную информацию -->
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>false</GenerateDebugInformation> <!-- Отключаем генерацию отладочной информации -->
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <!-- Отключаем генерацию отладочной информации -->
       <AdditionalLibraryDirectories>C:\dev\vcpkg\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mpfr.lib;gmp.lib;gmpxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -122,18 +119,32 @@
       <Command>xcopy /Y /I "C:\dev\vcpkg\bin\gmp-10.dll" "bin\Release\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\mpfr-6.dll" "bin\Release\" &amp;&amp; xcopy /Y /I "bin\Release\ankofl.Native.exe" "C:\Users\Public\ankofl\Native\$(AssemblyVersion)\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\gmp-10.dll" "C:\Users\Public\ankofl\Native\$(AssemblyVersion)\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\mpfr-6.dll" "C:\Users\Public\ankofl\Native\$(AssemblyVersion)\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-
   <ItemGroup>
     <ClCompile Include="cpp\boolean_mesh_1_mesh_2.cpp" />
+    <ClCompile Include="cpp\union_meshes.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\answer_utils.h" />
+    <ClInclude Include="h\copy.h" />
+    <ClInclude Include="h\load_custom.h" />
+    <ClInclude Include="h\load_dir.h" />
+    <ClInclude Include="h\offset\correct_normal.h" />
+    <ClInclude Include="h\offset\create_vector_normal_map.h" />
+    <ClInclude Include="h\offset\mesh_convex.h" />
+    <ClInclude Include="h\offset\mesh_decompose.h" />
+    <ClInclude Include="h\offset\mesh_expand.h" />
+    <ClInclude Include="h\offset\mesh_offset.h" />
     <ClInclude Include="h\read_args_from_file.h" />
+    <ClInclude Include="h\remesh\remesh_almost_planar.h" />
+    <ClInclude Include="h\remesh\remesh_planar.h" />
     <ClInclude Include="h\typedefs\typedefs_mesh.h" />
     <ClInclude Include="h\typedefs\typedefs_std.h" />
   </ItemGroup>
-  
+  <ItemGroup>
+    <Text Include="bin\Debug\data.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets"></ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
 </Project>

@@ -12,10 +12,19 @@
     <Filter Include="h\typedefs">
       <UniqueIdentifier>{9fa740e5-b1b9-48f3-b02e-27be4e672455}</UniqueIdentifier>
     </Filter>
+    <Filter Include="h\remesh">
+      <UniqueIdentifier>{84c2b4c8-8173-4f7c-bfce-4bf7c2ea633a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h\offset">
+      <UniqueIdentifier>{87d06ae8-9e39-49c2-8ebd-3e7d68257fbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="cpp\boolean_mesh_1_mesh_2.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\union_meshes.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,5 +41,41 @@
     <ClInclude Include="h\typedefs\typedefs_std.h">
       <Filter>h\typedefs</Filter>
     </ClInclude>
+    <ClInclude Include="h\load_dir.h">
+      <Filter>h</Filter>
+    </ClInclude>
+    <ClInclude Include="h\load_custom.h">
+      <Filter>h</Filter>
+    </ClInclude>
+    <ClInclude Include="h\remesh\remesh_planar.h">
+      <Filter>h\remesh</Filter>
+    </ClInclude>
+    <ClInclude Include="h\copy.h">
+      <Filter>h</Filter>
+    </ClInclude>
+    <ClInclude Include="h\remesh\remesh_almost_planar.h">
+      <Filter>h\remesh</Filter>
+    </ClInclude>
+    <ClInclude Include="h\offset\mesh_offset.h">
+      <Filter>h\offset</Filter>
+    </ClInclude>
+    <ClInclude Include="h\offset\mesh_decompose.h">
+      <Filter>h\offset</Filter>
+    </ClInclude>
+    <ClInclude Include="h\offset\mesh_convex.h">
+      <Filter>h\offset</Filter>
+    </ClInclude>
+    <ClInclude Include="h\offset\mesh_expand.h">
+      <Filter>h\offset</Filter>
+    </ClInclude>
+    <ClInclude Include="h\offset\correct_normal.h">
+      <Filter>h\offset</Filter>
+    </ClInclude>
+    <ClInclude Include="h\offset\create_vector_normal_map.h">
+      <Filter>h\offset</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="bin\Debug\data.txt" />
   </ItemGroup>
 </Project>
