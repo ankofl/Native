@@ -4,8 +4,8 @@
 #include <CGAL/convex_decomposition_3.h>
 #include "mesh_convex.h"
 
-inline bool mesh_decompose(Mesh& mesh, std::vector<Mesh>& meshes) {
-    meshes.clear();
+inline std::vector<Mesh> mesh_decompose(Mesh& mesh) {
+    std::vector<Mesh> meshes;
 
     Nef N(mesh);
 
@@ -21,5 +21,10 @@ inline bool mesh_decompose(Mesh& mesh, std::vector<Mesh>& meshes) {
             }
         }
     }
-    return meshes.size() > 0;
+
+    if (meshes.empty()) {
+        throw std::exception("fail:<mesh_decompose>");
+    }
+
+    return meshes;
 }

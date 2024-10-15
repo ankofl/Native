@@ -2,7 +2,6 @@
 #include "typedefs_std.h"
 #include <CGAL/Exact_predicates_exact_constructions_kernel.h>
 #include <CGAL/Polygon_mesh_processing/IO/polygon_mesh_io.h>
-
 #include <CGAL/Polygon_mesh_processing/polygon_soup_to_polygon_mesh.h>
 #include <CGAL/IO/read_off_points.h>
 #include <CGAL/Polyhedron_3.h>

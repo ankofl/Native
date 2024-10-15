@@ -74,6 +74,9 @@
     <ClInclude Include="h\offset\create_vector_normal_map.h">
       <Filter>h\offset</Filter>
     </ClInclude>
+    <ClInclude Include="h\offset\compute_union.h">
+      <Filter>h\remesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="bin\Debug\data.txt" />

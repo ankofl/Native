@@ -4,29 +4,18 @@
 #include <CGAL/Polygon_mesh_processing/repair_degeneracies.h>
 #include "remesh_almost_planar.h"
 
-inline void remesh_planar(Mesh mesh, Mesh& output) {
-	Mesh remeshed;
+inline Mesh& remesh_planar(Mesh& mesh) {	
 	int prim = mesh.size_of_facets();
 
+	Mesh remeshed;
 	PMP::remesh_planar_patches(mesh, remeshed);
-	if (remeshed.size_of_facets() == 0) {
-		return;
-	}
 	mesh = remeshed;
+
+	int after = mesh.size_of_facets();
 	
-	int remesh_one = mesh.size_of_facets();
-
-	remesh_almost_planar(mesh, 0.6, 1);
-
-	if (mesh.is_empty()) {
-		return;
+	if (prim != after) {
+		std::cout << "remeshed:" << after - prim << std::endl;
 	}
-
-	int remesh_two = mesh.size_of_facets();
 	
-	std::cout << "prim:" << prim << " remesh_one:" << remesh_one - prim << " remesh_two:" << remesh_two - remesh_one << std::endl;
-
-	if (!mesh.is_empty() && mesh.is_closed() && CGAL::is_triangle_mesh(mesh)) {
-		output = mesh;
-	}
+	return mesh;
 }
