@@ -1,4 +1,5 @@
 #include "../h/typedefs/typedefs_mesh.h"
+#include "../h/typedefs/io.h"
 
 #include <CGAL/Polygon_mesh_processing/corefinement.h>
 

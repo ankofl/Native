@@ -14,9 +14,9 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{385E612E-191D-4960-BCE0-738CC450181B}</ProjectGuid>
-    <RootNamespace>ankofl_CSG_Native</RootNamespace>
+    <RootNamespace>ankofl</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>ankofl.Native</ProjectName>
+    <ProjectName>native</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Versioning">
@@ -71,7 +71,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\dev\vcpkg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\vcpkg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>false</SupportJustMyCode>
@@ -82,11 +82,11 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\dev\vcpkg\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Public\vcpkg\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mpfr.lib;gmp.lib;gmpxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /I "C:\dev\vcpkg\bin\gmp-10.dll" "bin\Debug\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\mpfr-6.dll" "bin\Debug\"</Command>
+      <Command>xcopy /Y /I "C:\Users\Public\vcpkg\bin\gmp-10.dll" "bin\Debug\" &amp;&amp; xcopy /Y /I "C:\Users\Public\vcpkg\bin\mpfr-6.dll" "bin\Debug\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <!-- Настройки компиляции для Release (изменено) -->
@@ -98,7 +98,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\dev\vcpkg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\vcpkg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>CGAL_EIGEN3_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -112,11 +112,11 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <!-- Отключаем генерацию отладочной информации -->
-      <AdditionalLibraryDirectories>C:\dev\vcpkg\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Public\vcpkg\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mpfr.lib;gmp.lib;gmpxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /I "C:\dev\vcpkg\bin\gmp-10.dll" "bin\Release\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\mpfr-6.dll" "bin\Release\" &amp;&amp; xcopy /Y /I "bin\Release\ankofl.Native.exe" "C:\Users\Public\ankofl\Native\$(AssemblyVersion)\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\gmp-10.dll" "C:\Users\Public\ankofl\Native\$(AssemblyVersion)\" &amp;&amp; xcopy /Y /I "C:\dev\vcpkg\bin\mpfr-6.dll" "C:\Users\Public\ankofl\Native\$(AssemblyVersion)\"</Command>
+      <Command>xcopy /Y /I "C:\Users\Public\vcpkg\bin\gmp-10.dll" "bin\Release\" &amp;&amp; xcopy /Y /I "C:\Users\Public\vcpkg\bin\mpfr-6.dll" "bin\Release\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -128,10 +128,9 @@
     <ClInclude Include="h\answer_utils.h" />
     <ClInclude Include="h\copy.h" />
     <ClInclude Include="h\load_custom.h" />
-    <ClInclude Include="h\load_dir.h" />
-    <ClInclude Include="h\offset\compute_union.h" />
     <ClInclude Include="h\offset\correct_normal.h" />
-    <ClInclude Include="h\offset\create_vector_normal_map.h" />
+    <ClInclude Include="h\offset\expand.h" />
+    <ClInclude Include="h\offset\mesh_vector_normal_map.h" />
     <ClInclude Include="h\offset\mesh_convex.h" />
     <ClInclude Include="h\offset\mesh_decompose.h" />
     <ClInclude Include="h\offset\mesh_expand.h" />
@@ -139,6 +138,7 @@
     <ClInclude Include="h\read_args_from_file.h" />
     <ClInclude Include="h\remesh\remesh_almost_planar.h" />
     <ClInclude Include="h\remesh\remesh_planar.h" />
+    <ClInclude Include="h\typedefs\io.h" />
     <ClInclude Include="h\typedefs\typedefs_mesh.h" />
     <ClInclude Include="h\typedefs\typedefs_std.h" />
   </ItemGroup>

@@ -41,9 +41,6 @@
     <ClInclude Include="h\typedefs\typedefs_std.h">
       <Filter>h\typedefs</Filter>
     </ClInclude>
-    <ClInclude Include="h\load_dir.h">
-      <Filter>h</Filter>
-    </ClInclude>
     <ClInclude Include="h\load_custom.h">
       <Filter>h</Filter>
     </ClInclude>
@@ -71,11 +68,14 @@
     <ClInclude Include="h\offset\correct_normal.h">
       <Filter>h\offset</Filter>
     </ClInclude>
-    <ClInclude Include="h\offset\create_vector_normal_map.h">
+    <ClInclude Include="h\offset\mesh_vector_normal_map.h">
       <Filter>h\offset</Filter>
     </ClInclude>
-    <ClInclude Include="h\offset\compute_union.h">
-      <Filter>h\remesh</Filter>
+    <ClInclude Include="h\typedefs\io.h">
+      <Filter>h\typedefs</Filter>
+    </ClInclude>
+    <ClInclude Include="h\offset\expand.h">
+      <Filter>h\offset</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

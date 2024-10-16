@@ -1,1 +1,1 @@
-start_union_meshes C:/dev/ankofl.Native/bin/Debug/Unite/ C:/dev/ankofl.Native/bin/Debug/united.off
+start_union_meshes C:/Users/Public/ankofl/native/bin/Release/unite/ C:/Users/Public/ankofl/native/bin/Release/united.off

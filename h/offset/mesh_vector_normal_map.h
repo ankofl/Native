@@ -1,7 +1,7 @@
 #pragma once
 #include "../typedefs/typedefs_mesh.h"
 
-inline void create_vector_normal_map(Mesh& mesh, std::vector<std::map<P, std::vector<V>>>& vector_normal_map) {
+inline void mesh_vector_normal_map(Mesh& mesh, std::vector<std::map<P, std::vector<V>>>& vector_normal_map) {
     // —оздаем временную карту дл€ хранени€ нормалей
     std::map<P, std::vector<V>> normal_map;
 

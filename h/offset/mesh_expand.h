@@ -6,7 +6,7 @@
 #include <CGAL/Aff_transformation_3.h>
 #include <map>
 #include <cmath> // Для std::abs
-#include "create_vector_normal_map.h"
+#include "mesh_vector_normal_map.h"
 #include "correct_normal.h"
 #include "../remesh/remesh_planar.h"
 #include <CGAL/convex_hull_3.h>
@@ -14,7 +14,7 @@
 inline bool mesh_expand(Mesh mesh, double margin, Mesh& output) {
     std::vector<std::map<P, std::vector<V>>> vector_normal_map;
     // Создаем vector_normal_map на основе mesh
-    create_vector_normal_map(mesh, vector_normal_map);
+    mesh_vector_normal_map(mesh, vector_normal_map);
 
     std::vector<P> pins;
     // Пример вывода содержимого vector_normal_map
