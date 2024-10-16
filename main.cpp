@@ -1,6 +1,5 @@
 #include "h/read_args_from_file.h"
 #include "cpp/boolean_mesh_1_mesh_2.cpp"
-#include "h/answer_utils.h"
 #include "cpp/union_meshes.cpp"
 
 int main() {
@@ -19,11 +18,6 @@ int main() {
                 args[2]);// Путь сохранения объединённого .off файла
         }
     }
-    else {
-        answer_add("incorrect_args");
-    }
 
-    std::cin.get();
-    
     return 0;
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "../h/answer_utils.h"
+#include "typedefs/typedefs_std.h"
 
 inline bool read_args_from_file(const std::string& filepath, std::vector<std::string>& args) {
     std::ifstream file(filepath); // Открываем файл для чтения
@@ -16,12 +16,7 @@ inline bool read_args_from_file(const std::string& filepath, std::vector<std::st
                 args.push_back(word);
             }
         }
-        file.close(); // Закрываем файл
-        //answer_clear();
-    }
-    else {
-        //answer_clear();
-        answer_add(std::format("fail_open_file: < {} >\n", filepath));
+        file.close();
     }
     return args.size() > 0;
 }

@@ -29,9 +29,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\answer_utils.h">
-      <Filter>h</Filter>
-    </ClInclude>
     <ClInclude Include="h\read_args_from_file.h">
       <Filter>h</Filter>
     </ClInclude>
