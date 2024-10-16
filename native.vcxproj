@@ -129,7 +129,7 @@
     <ClInclude Include="h\copy.h" />
     <ClInclude Include="h\load_custom.h" />
     <ClInclude Include="h\offset\correct_normal.h" />
-    <ClInclude Include="h\offset\expand.h" />
+    <ClInclude Include="h\offset\nef_offset.h" />
     <ClInclude Include="h\offset\mesh_vector_normal_map.h" />
     <ClInclude Include="h\offset\mesh_convex.h" />
     <ClInclude Include="h\offset\mesh_decompose.h" />

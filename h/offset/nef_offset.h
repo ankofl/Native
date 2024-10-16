@@ -5,7 +5,7 @@
 typedef CGAL::Nef_polyhedron_S2<K> Nef_polyhedron;
 typedef Nef_polyhedron::Sphere_circle Sphere_circle;
 
-inline void expand_polyhedron(Mesh& mesh, double distance) {
+inline void nef_offset(Mesh& mesh, double distance) {
 
 	Nef nef(mesh);
 

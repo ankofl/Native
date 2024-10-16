@@ -3,15 +3,13 @@
 #include <CGAL/Polygon_mesh_processing/corefinement.h>
 #include "mesh_decompose.h"
 #include "mesh_expand.h"
-#include "expand.h"
+#include "nef_offset.h"
 
-const double offset_const = 0.00000001;
+const double offset_const = 0.01;
 
 inline Mesh mesh_offset(Mesh& mesh, double offset) {
-	std::cout << "offsetting... ";
-
-	expand_polyhedron(mesh, offset);
-	return mesh;
+	//nef_offset(mesh, offset);
+	//return mesh;
 
 	std::vector<Mesh> meshes = mesh_decompose(mesh);
 	
@@ -29,19 +27,15 @@ inline Mesh mesh_offset(Mesh& mesh, double offset) {
 			if (mesh_expand(meshes[i], offset, expand)) {
 				Mesh united;
 				if (PMP::corefine_and_compute_union(output, expand, united)) {
+					remesh_planar(united);
 					output = united;
 				}
 			}
 		}
 	}
 
-	int after = output.size_of_facets();
-
-	if (after == 0) {
+	if (output.size_of_facets() == 0) {
 		throw std::exception("fail:<mesh_offset>");
 	}
-
-	std::cout << std::format("offsetted:({})\n", after);
-
 	return output;
 }

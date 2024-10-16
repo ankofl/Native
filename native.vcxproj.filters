@@ -74,7 +74,7 @@
     <ClInclude Include="h\typedefs\io.h">
       <Filter>h\typedefs</Filter>
     </ClInclude>
-    <ClInclude Include="h\offset\expand.h">
+    <ClInclude Include="h\offset\nef_offset.h">
       <Filter>h\offset</Filter>
     </ClInclude>
   </ItemGroup>

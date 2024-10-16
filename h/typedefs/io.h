@@ -2,12 +2,12 @@
 #include "typedefs_mesh.h"
 #include "../offset/mesh_offset.h"
 
-inline bool load_from(Mesh& output, const std::string& path) {
-    output.clear();
+inline Mesh load_from(const std::string& path) {
+    Mesh output;
     std::ifstream input;
     input.open(path);
     if (!input) {
-        return false;
+        throw std::exception("fail:<load_from>");
     }
     else {
         input >> output;
@@ -16,23 +16,29 @@ inline bool load_from(Mesh& output, const std::string& path) {
 
     if (!CGAL::is_triangle_mesh(output)) {
         if (!PMP::triangulate_faces(output)) {
-            std::cout << "no_triangulate\n";
+            throw std::exception("fail:<load_from:no_triangulate>");
         }
     }
 
     if (!output.is_closed()) {
-        std::cout << "no_closed\n";
+        throw std::exception("fail:<load_from:no_closed>");
     }
 
     if (!PMP::does_bound_a_volume(output)) {
-        std::cout << "no_bound\n";
+        throw std::exception("fail:<load_from:no_bound>");
     }
 
     if (PMP::does_self_intersect(output)) {
-        std::cout << "self_inter\n";
+        throw std::exception("fail:<load_from:self_inter>");
     }
 
-    return CGAL::is_valid_polygon_mesh(output);
+    if (!CGAL::is_valid_polygon_mesh(output)) {
+        throw std::exception("fail:<load_from:valid_polygon>");
+    }
+
+    remesh_planar(output);
+
+    return output;
 }
 
 inline bool save_to(const Mesh& input, const std::string path) {
@@ -48,12 +54,12 @@ inline bool save_to(const Mesh& input, const std::string path) {
 inline bool load_dir(const std::string& directory, std::vector<Mesh>& meshes) {
     for (const auto& entry : std::filesystem::directory_iterator(directory)) {
         if (entry.is_regular_file() && entry.path().extension() == ".off") {
-            Mesh loaded;
-            if (load_from(loaded, entry.path().string())) {
-                //meshes.push_back(loaded);
-                meshes.push_back(mesh_offset(loaded, offset_const));
-            }
-        }
+            std::cout << std::format("loading:({})", entry.path().string());
+
+            meshes.push_back(load_from(entry.path().string()));
+
+            std::cout << std::format("loaded:({})\n", meshes.back().size_of_facets());
+        }        
     }
     return meshes.size() > 0;
 }
