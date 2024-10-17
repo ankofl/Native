@@ -44,7 +44,7 @@
     <ClInclude Include="h\remesh\remesh_planar.h">
       <Filter>h\remesh</Filter>
     </ClInclude>
-    <ClInclude Include="h\copy.h">
+    <ClInclude Include="h\convert_to.h">
       <Filter>h</Filter>
     </ClInclude>
     <ClInclude Include="h\remesh\remesh_almost_planar.h">

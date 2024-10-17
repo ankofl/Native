@@ -125,7 +125,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\copy.h" />
+    <ClInclude Include="h\convert_to.h" />
     <ClInclude Include="h\load_custom.h" />
     <ClInclude Include="h\offset\correct_normal.h" />
     <ClInclude Include="h\offset\nef_offset.h" />

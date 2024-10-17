@@ -14,6 +14,7 @@
 #include <CGAL/Nef_3/SNC_indexed_items.h>
 
 typedef CGAL::Exact_predicates_exact_constructions_kernel K;
+
 typedef K::Point_3                                P;
 typedef K::Vector_3                               V;
 typedef std::vector<std::size_t> Face;

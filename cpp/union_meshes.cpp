@@ -16,11 +16,11 @@ inline void union_meshes(
 		return;
 	}
 
-	for (size_t i = 0; i < meshes.size(); i++) {
-		std::cout << std::format("offsetting:({}/{}):",i+1, meshes.size());
+	/*for (size_t i = 0; i < meshes.size(); i++) {
+		std::cout << std::format("offsetting:({}/{})<{}>:",i+1, meshes.size(), meshes[i].size_of_facets());
 		meshes[i] = mesh_offset(meshes[i], offset_const);
 		std::cout << std::format("offsetted:({})\n", meshes[i].size_of_facets());
-	}
+	}*/
 
 	int last_remeshed_fasets_size = 0;
 
